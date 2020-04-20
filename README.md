@@ -1,2 +1,1 @@
-#ParallelSort
 # Parallel Sort
