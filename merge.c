@@ -24,6 +24,7 @@ void merge(int *start, int *mid, int *end, int depth, int threadspace, int flag)
 
     	// copy results
     	memcpy(start, res, (rhs - start) * sizeof *res);
+	free(res); 	//Free the auxillary space
 
     	if(flag)	//Printing the starting and ending of the merged array, formatted
     	{
@@ -31,10 +32,10 @@ void merge(int *start, int *mid, int *end, int depth, int threadspace, int flag)
         	int i=threadspace*16, j=log(depth)/log(2) * 2 +DEPTH +4;
         	pthread_mutex_lock(&mtx);
 		gotoxy(i, j);
-		printf("%4d .. %4d", res[0], res[rhs-start -1]);
+		printf("%4d .. %4d", start[0], start[end-start -1]);
 		pthread_mutex_unlock(&mtx);
     	}
-    	free(res);					//Free the auxillary space
+
 }
 
 void merge_sort_mt(int *start, size_t len, int depth, int threadspace, int flag)	//Function that divides, assigns thread, and merges
