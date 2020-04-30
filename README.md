@@ -35,6 +35,7 @@ cd ParallelSort
 ```
 ./MultiThreadedSorting
 ```
+- Enter inputs greater than 8, and print the array to visualise the sorting.
 
 ## Authors 
 
